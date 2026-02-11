@@ -11,7 +11,7 @@ EOT
 
   type = map(object({
     server_id             = string
-    auto_rotation_enabled = optional(bool, false)
+    auto_rotation_enabled = optional(bool) # Default: false
     key_vault_key_id      = optional(string)
     managed_hsm_key_id    = optional(string)
   }))
