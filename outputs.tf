@@ -1,3 +1,7 @@
+output "mssql_server_transparent_data_encryptions_id" {
+  description = "Map of id values across all mssql_server_transparent_data_encryptions, keyed the same as var.mssql_server_transparent_data_encryptions"
+  value       = { for k, v in azurerm_mssql_server_transparent_data_encryption.mssql_server_transparent_data_encryptions : k => v.id }
+}
 output "mssql_server_transparent_data_encryptions_auto_rotation_enabled" {
   description = "Map of auto_rotation_enabled values across all mssql_server_transparent_data_encryptions, keyed the same as var.mssql_server_transparent_data_encryptions"
   value       = { for k, v in azurerm_mssql_server_transparent_data_encryption.mssql_server_transparent_data_encryptions : k => v.auto_rotation_enabled }
