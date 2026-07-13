@@ -15,17 +15,6 @@ EOT
     key_vault_key_id      = optional(string)
     managed_hsm_key_id    = optional(string)
   }))
-  # --- Unconfirmed validation candidates, derived from azurerm_mssql_server_transparent_data_encryption's provider source ---
-  # Not auto-enabled: either a bespoke provider validator we can't safely translate,
-  # or a path that crosses a list-typed block (needs its own for_each wrapping).
-  # Review, translate into a real validation{} block above, and delete once confirmed.
-  # path: server_id
-  #   source:    [from mssqlValidate.ServerID] !ok
-  # path: server_id
-  #   source:    [from mssqlValidate.ServerID] err != nil
-  # path: key_vault_key_id
-  #   source:    [from keyvault.ValidateNestedItemID] !ok
-  # path: key_vault_key_id
-  #   source:    [from keyvault.ValidateNestedItemID] err != nil
+  # Note: 4 additional provider-side validators are enforced at apply time but not mirrored as validation{} blocks here (bespoke or non-mechanically-translatable).
 }
 
