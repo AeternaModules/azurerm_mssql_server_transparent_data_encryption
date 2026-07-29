@@ -6,14 +6,12 @@ Required:
 Optional:
     - auto_rotation_enabled
     - key_vault_key_id
-    - managed_hsm_key_id
 EOT
 
   type = map(object({
     server_id             = string
     auto_rotation_enabled = optional(bool)
     key_vault_key_id      = optional(string)
-    managed_hsm_key_id    = optional(string)
   }))
   # Note: 4 additional provider-side validators are enforced at apply time but not mirrored as validation{} blocks here (bespoke or non-mechanically-translatable).
 }
